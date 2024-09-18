@@ -81,12 +81,19 @@
 >
 >設定できるのはcustom1～custom10までです、custom11= と書いても分割カスタム11が使えるといったことはありません。(今後対応する可能性はありますが...)
 
+
 # クレジット
 * aviutl [https://spring-fragrance.mints.ne.jp/aviutl/](https://spring-fragrance.mints.ne.jp/aviutl/)
 * aviutl_exedit_sdk [https://github.com/ePi5131/aviutl_exedit_sdk](https://github.com/ePi5131/aviutl_exedit_sdk)
 * 切り取りプラグイン [https://github.com/nazonoSAUNA/tl_Item_cut?tab=readme-ov-file](https://github.com/nazonoSAUNA/tl_Item_cut?tab=readme-ov-file)
 
 # 作成者情報
+* 作成者:ゆらてぃー
+  * 普段はグループでマイクラ実況とか、まれにゆっくり実況とかやってます
+* X(ゆらてぃー):[https://x.com/yuratexi5116](https://x.com/yuratexi5116)
+* X(ゆらてぃー研究部(なにかあればこちらのDMまで...)):[https://x.com/researcheryura](https://x.com/researcheryura)
+* Youtube(ゆらてぃー(ゆっくり実況)):[https://www.youtube.com/@ゆらてぃー](https://www.youtube.com/@%E3%82%86%E3%82%89%E3%81%A6%E3%81%83%E3%83%BC)
+* Youtube(ねころ部(グループ実況)):[https://www.youtube.com/@ねころ部games](https://www.youtube.com/@%E3%81%AD%E3%81%93%E3%82%8D%E9%83%A8games)
 
 # 免責事項
 この作成物および同梱物を使用したことによって生じたすべての障害・損害・不具合等に関しては、作成者と作成者の関係者および作成者の所属するいかなる団体・組織とも、一切の責任を負いません。各自の責任においてご使用ください。  
