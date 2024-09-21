@@ -87,6 +87,10 @@
 * aviutl_exedit_sdk [https://github.com/ePi5131/aviutl_exedit_sdk](https://github.com/ePi5131/aviutl_exedit_sdk)
 * 切り取りプラグイン [https://github.com/nazonoSAUNA/tl_Item_cut?tab=readme-ov-file](https://github.com/nazonoSAUNA/tl_Item_cut?tab=readme-ov-file)
 
+# ライセンスについて
+aviutl_exedit_sdkの配布元がライセンスを1条項BSDとしているため、1条項BSDのライセンスをそのまま写しています。
+ですが、その下にMITライセンスを追加しています。なので基本的にはMITライセンスとして扱ってもらって問題ないはずです。
+
 # 作成者情報
 * 作成者:ゆらてぃー
   * 普段はグループでマイクラ実況とか、まれにゆっくり実況とかやってます
