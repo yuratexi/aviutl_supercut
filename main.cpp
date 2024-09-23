@@ -15,35 +15,35 @@
 #define M_ITEM_CUSTOM9_SPLIT (WM_USER + 0xA)
 #define M_ITEM_CUSTOM10_SPLIT (WM_USER + 0xB)
 
-static const char all_split[] = ("•ªŠ„ALL");
-static const char custom1_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€1");
-static const char custom2_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€2");
-static const char custom3_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€3");
-static const char custom4_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€4");
-static const char custom5_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€5");
-static const char custom6_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€6");
-static const char custom7_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€7");
-static const char custom8_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€8");
-static const char custom9_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€9");
-static const char custom10_split[] = ("•ªŠ„ƒJƒXƒ^ƒ€10");
+static const char all_split[] = ("åˆ†å‰²ALL");
+static const char custom1_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 1");
+static const char custom2_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 2");
+static const char custom3_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 3");
+static const char custom4_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 4");
+static const char custom5_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 5");
+static const char custom6_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 6");
+static const char custom7_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 7");
+static const char custom8_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 8");
+static const char custom9_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 9");
+static const char custom10_split[] = ("åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 10");
 
 
 //constexpr TCHAR* track_name[] = { "1","2","3","4","5" };
 //constexpr int    track_default[] = { 0,0,0,0,0 };
 
-constexpr TCHAR* track_name[] = { "configƒtƒ@ƒCƒ‹‚Ìİ’è•û–@‚ğŠm”F‚·‚é","configƒtƒ@ƒCƒ‹‚ğŠJ‚­"};
-constexpr int    track_default[] = { -1,-1 };
+constexpr TCHAR* button_name[] = { "configãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šæ–¹æ³•ã‚’ç¢ºèªã™ã‚‹","configãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã"};
+constexpr int    button_default[] = { -1,-1 };
 
 
 FILTER_DLL filter = {
     FILTER_FLAG_ALWAYS_ACTIVE,
     NULL,NULL,
-    const_cast<char*>("ƒX[ƒp[ƒJƒbƒg by ‚ä‚ç‚Ä‚¡["),
+    const_cast<char*>("ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚«ãƒƒãƒˆ by ã‚†ã‚‰ã¦ãƒãƒ¼"),
     NULL,NULL,NULL,
     NULL,NULL,
-    2,          //ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚Ì”
-    const_cast<TCHAR**>(track_name),    //ƒ`ƒFƒbƒNƒ{ƒbƒNƒX–¼‘OŒS‚Ö‚Ìƒ|ƒCƒ“ƒ^(–¼‘O‚ª“ü‚Á‚Ä‚é”z—ñ–¼‚ğ‘‚­)
-    const_cast<int*>(track_default),    //‰Šú’l‚Ö‚Ìƒ|ƒCƒ“ƒ^
+    2,          //ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã®æ•°
+    const_cast<TCHAR**>(button_name),    //ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹åå‰éƒ¡ã¸ã®ãƒã‚¤ãƒ³ã‚¿(åå‰ãŒå…¥ã£ã¦ã‚‹é…åˆ—åã‚’æ›¸ã)
+    const_cast<int*>(button_default),    //åˆæœŸå€¤ã¸ã®ãƒã‚¤ãƒ³ã‚¿
     NULL,
     NULL,
     NULL,
@@ -70,7 +70,7 @@ FILTER* get_exeditfp(FILTER* fp) {
     for (int i = 0; i < si.filter_n; i++) {
         FILTER* tfp = (FILTER*)fp->exfunc->get_filterp(i);
         if (tfp->information != NULL) {
-            if (!strcmp(tfp->information, "Šg’£•ÒW(exedit) version 0.92 by ‚j‚d‚m‚­‚ñ")) return tfp;
+            if (!strcmp(tfp->information, "æ‹¡å¼µç·¨é›†(exedit) version 0.92 by ï¼«ï¼¥ï¼®ãã‚“")) return tfp;
         }
     }
     return NULL;
@@ -102,52 +102,52 @@ int select10[101] = { 0,1,2,3,-1 };
 
 void item_all_split(void* editp, FILTER* fp) {
     int n = 0;
-    int now_frame = fp->exfunc->get_frame(editp);    //Œ»İ‚ÌƒtƒŒ[ƒ€ˆÊ’u
+    int now_frame = fp->exfunc->get_frame(editp);    //ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ ä½ç½®
     auto obj = *ObjectArray_ptr;
 
-    //Ä¶ˆÊ’u‚É‘¶İ‚·‚éƒIƒuƒWƒFƒNƒg‚ğ‘S‚Ä‘I‘ğ
+    //å†ç”Ÿä½ç½®ã«å­˜åœ¨ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å…¨ã¦é¸æŠ
     for (int i = 0; i < *ObjectAlloc_ptr; ++i) {
-        //ƒIƒuƒWƒFƒNƒg‚ªÄ¶ˆÊ’u‚É‚ ‚Á‚½‚ç
+        //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå†ç”Ÿä½ç½®ã«ã‚ã£ãŸã‚‰
         if (obj->frame_begin <= now_frame && now_frame <= obj->frame_end) {
             SelectingObjectIndex[n] = i;
             n++;
         }
         obj++;
-        if ((int)obj->flag == 0) break; //flag‚ª0‚¾‚Á‚½‚çI’[‚È‚Ì‚Åˆ—‚ğI—¹‚·‚é
+        if ((int)obj->flag == 0) break; //flagãŒ0ã ã£ãŸã‚‰çµ‚ç«¯ãªã®ã§å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹
     }
 
-    *SelectingObjectNum_ptr = n;    //‘I‘ğ‚µ‚½”‚ğ‘ã“ü
+    *SelectingObjectNum_ptr = n;    //é¸æŠã—ãŸæ•°ã‚’ä»£å…¥
     
-    int split_mode_org = *split_mode;   //org:original‚Ì—ª
+    int split_mode_org = *split_mode;   //org:originalã®ç•¥
     *split_mode = 1;
-    SendMessageA(exeditfp->hwnd, WM_COMMAND, 1051, -1); //"‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg"‚ğƒJƒbƒg‚·‚é
+    SendMessageA(exeditfp->hwnd, WM_COMMAND, 1051, -1); //"é¸æŠã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ"ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
 
 
     *split_mode = split_mode_org;
 
     *SelectingObjectNum_ptr = 0;
-    drawtimeline(); //‘I‘ğ‰ğœ
+    drawtimeline(); //é¸æŠè§£é™¤
 }
 
-//select‚Ì“Yš‚ª101‚È‚Ì‚ÍAƒŒƒCƒ„[‚Ì”(100)+I’[•¶š—p(1)‚¾‚©‚ç
+//selectã®æ·»å­—ãŒ101ãªã®ã¯ã€ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ•°(100)+çµ‚ç«¯æ–‡å­—ç”¨(1)ã ã‹ã‚‰
 void item_custom_split(void* editp, FILTER* fp,int select[101]) {
-    int select_len = 0; //”z—ñselect‚Ì’·‚³
+    int select_len = 0; //é…åˆ—selectã®é•·ã•
 
     bool findflg = false;
     int n = 0;
-    int now_frame = fp->exfunc->get_frame(editp);    //Œ»İ‚ÌƒtƒŒ[ƒ€ˆÊ’u
+    int now_frame = fp->exfunc->get_frame(editp);    //ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ ä½ç½®
 
     auto obj = *ObjectArray_ptr;
 
     
-    //select_len‚ğ‹‚ß‚é
+    //select_lenã‚’æ±‚ã‚ã‚‹
     while (select[select_len] != -1) {
         select_len++;
     }
 
-    //*ObjectAlloc_ptr=ƒf[ƒ^‚ÌŒÂ”(‘å‘Ì)
+    //*ObjectAlloc_ptr=ãƒ‡ãƒ¼ã‚¿ã®å€‹æ•°(å¤§ä½“)
     for (int i = 0; i < *ObjectAlloc_ptr; ++i) {
-        //ƒIƒuƒWƒFƒNƒg‚ªÄ¶ˆÊ’u‚É‚ ‚Á‚½‚ç
+        //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå†ç”Ÿä½ç½®ã«ã‚ã£ãŸã‚‰
         if (obj->frame_begin < now_frame && now_frame < obj->frame_end) {
 
             for(int j = 0;j < select_len;++j){
@@ -159,28 +159,28 @@ void item_custom_split(void* editp, FILTER* fp,int select[101]) {
             }
         }
         obj++;
-        if ((int)obj->flag == 0) break; //flag‚ª0‚¾‚Á‚½‚çI’[‚È‚Ì‚Åˆ—‚ğI—¹‚·‚é
-        if (n >= select_len) break; //‘I‘ğ‚·‚×‚«‚à‚Ì‚ğ‘S‚Ä‘I‘ğ‚µ‚½‚çˆ—‚ğI—¹‚·‚é
+        if ((int)obj->flag == 0) break; //flagãŒ0ã ã£ãŸã‚‰çµ‚ç«¯ãªã®ã§å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹
+        if (n >= select_len) break; //é¸æŠã™ã¹ãã‚‚ã®ã‚’å…¨ã¦é¸æŠã—ãŸã‚‰å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹
     }
 
-    *SelectingObjectNum_ptr = n;    //‘I‘ğ‚µ‚½”‚ğ‘ã“ü
+    *SelectingObjectNum_ptr = n;    //é¸æŠã—ãŸæ•°ã‚’ä»£å…¥
 
-    //‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg‚ªˆê‚Â‚à–³‚¯‚ê‚Îˆ—‚ğI—¹‚·‚é
+    //é¸æŠã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒä¸€ã¤ã‚‚ç„¡ã‘ã‚Œã°å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹
     if (*SelectingObjectNum_ptr <= 0) return;
 
-    int split_mode_org = *split_mode;   //org:original‚Ì—ª
+    int split_mode_org = *split_mode;   //org:originalã®ç•¥
     *split_mode = 1;
-    SendMessageA(exeditfp->hwnd, WM_COMMAND, 1051, -1); //"‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg"‚ğƒJƒbƒg‚·‚é
+    SendMessageA(exeditfp->hwnd, WM_COMMAND, 1051, -1); //"é¸æŠã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ"ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
 
 
     *split_mode = split_mode_org;
 
     *SelectingObjectNum_ptr = 0;
-    drawtimeline(); //‘I‘ğ‰ğœ
+    drawtimeline(); //é¸æŠè§£é™¤
 }
 
 
-//İ’èƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İAselect1`10”z—ñ‚É’l‚ğİ’è‚·‚é
+//è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€select1ï½10é…åˆ—ã«å€¤ã‚’è¨­å®šã™ã‚‹
 int set_customselect(HWND hwnd, FILTER* fp) {
     char buf[4096];
     char tmp[64];
@@ -190,23 +190,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     int select_cnt;
     FILE* m_fp;
 
-    //ƒtƒ@ƒCƒ‹‚ğ“Ç‚İæ‚èƒ‚[ƒh‚ÅŠJ‚­
+    //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
     fopen_s(&m_fp, "m_supercut_config.ini", "r");
 
-    //ŠJ‚¯‚È‚¯‚ê‚Îƒtƒ@ƒCƒ‹‚ğ‰Šúó‘Ô‚Åì¬‚·‚é
+    //é–‹ã‘ãªã‘ã‚Œã°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸçŠ¶æ…‹ã§ä½œæˆã™ã‚‹
     if (m_fp == NULL) {
-        //ƒtƒ@ƒCƒ‹ì¬
+        //ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
         fopen_s(&m_fp, "m_supercut_config.ini", "w");
 
-        //ˆê‰‘‚¢‚Ä‚Í‚¢‚é‚ª‚±‚±‚É•ªŠò‚·‚é‚±‚Æ‚Í‚È‚¢‚Í‚¸
+        //ä¸€å¿œæ›¸ã„ã¦ã¯ã„ã‚‹ãŒã“ã“ã«åˆ†å²ã™ã‚‹ã“ã¨ã¯ãªã„ã¯ãš
         if (m_fp == NULL) {
-            MessageBoxA(fp->hwnd, "set_customselect():m_supercut_config.iniƒtƒ@ƒCƒ‹ì¬‚É¸”s", fp->name, MB_OK);
+            MessageBoxA(fp->hwnd, "set_customselect():m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆã«å¤±æ•—", fp->name, MB_OK);
             return -1;
         }
 
-        //ƒtƒ@ƒCƒ‹‚É‰Šúƒf[ƒ^‚ğ‘‚«‚Ş
+        //ãƒ•ã‚¡ã‚¤ãƒ«ã«åˆæœŸãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
         fprintf(m_fp, "---------------------------------------------------------------------------------------------------\n");
-        fprintf(m_fp, "’ˆÓ:‚±‚Ìƒtƒ@ƒCƒ‹‚É–³‘Ê‚È•¶š‚â‰üs‚ğ“ü‚ê‚È‚¢‚Å‚­‚¾‚³‚¢B“ü‚ê‚é‚Æƒvƒ‰ƒOƒCƒ“‚ª³í‚É“®ì‚µ‚Ü‚¹‚ñB\n");
+        fprintf(m_fp, "æ³¨æ„:ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ç„¡é§„ãªæ–‡å­—ã‚„æ”¹è¡Œã‚’å…¥ã‚Œãªã„ã§ãã ã•ã„ã€‚å…¥ã‚Œã‚‹ã¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒæ­£å¸¸ã«å‹•ä½œã—ã¾ã›ã‚“ã€‚\n");
         fprintf(m_fp, "---------------------------------------------------------------------------------------------------\n\n");
         fprintf(m_fp, "custom1=1,2,3,4\n");
         fprintf(m_fp, "custom2=1,3,5,7\n");
@@ -221,47 +221,47 @@ int set_customselect(HWND hwnd, FILTER* fp) {
 
         fclose(m_fp);
 
-        //ƒtƒ@ƒCƒ‹‚ğ“Ç‚İæ‚èƒ‚[ƒh‚ÅŠJ‚­
+        //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
         fopen_s(&m_fp, "m_supercut_config.ini", "r");
 
-        //ˆê‰‘‚¢‚Ä‚Í‚¢‚é‚ª‚±‚±‚É•ªŠò‚·‚é‚±‚Æ‚Í‚È‚¢‚Í‚¸
+        //ä¸€å¿œæ›¸ã„ã¦ã¯ã„ã‚‹ãŒã“ã“ã«åˆ†å²ã™ã‚‹ã“ã¨ã¯ãªã„ã¯ãš
         if (m_fp == NULL) {
-            MessageBoxA(fp->hwnd, "set_customselect():m_supercut_config.iniƒtƒ@ƒCƒ‹“Ç‚İæ‚è‚É¸”s(ƒtƒ@ƒCƒ‹ì¬‚Í¬Œ÷)", fp->name, MB_OK);
+            MessageBoxA(fp->hwnd, "set_customselect():m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿å–ã‚Šã«å¤±æ•—(ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆã¯æˆåŠŸ)", fp->name, MB_OK);
             return -1;
         }
     }
 
-    //Å‰‚Ì’ˆÓ‚Ì‚Æ‚±‚ë‚ğ”ò‚Î‚·(‚È‚¯‚ê‚ÎƒGƒ‰[)
+    //æœ€åˆã®æ³¨æ„ã®ã¨ã“ã‚ã‚’é£›ã°ã™(ãªã‘ã‚Œã°ã‚¨ãƒ©ãƒ¼)
     for (int i = 0; i < 4; ++i) {
         if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-            MessageBoxA(fp->hwnd, "(1`4s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+            MessageBoxA(fp->hwnd, "(1ï½4è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
             return -2;
         }
     }
 
-    //ƒf[ƒ^“Ç‚İæ‚è
+    //ãƒ‡ãƒ¼ã‚¿èª­ã¿å–ã‚Š
     j = 0;
     cnt = 8;
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(5s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(5è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select1[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select1[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini5s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini5è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -273,8 +273,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select1[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select1[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -288,23 +288,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(6s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(6è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select2[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select2[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini6s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini6è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -316,8 +316,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select2[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select2[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -330,23 +330,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(7s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(7è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select3[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select3[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini7s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini7è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -358,8 +358,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select3[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select3[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -373,23 +373,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(8s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(8è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select4[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select4[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini8s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini8è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -401,8 +401,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select4[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select4[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -417,23 +417,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(9s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(9è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select5[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select5[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini9s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini9è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -445,8 +445,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select5[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select5[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -460,23 +460,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(10s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(10è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select6[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select6[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini10s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini10è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -488,8 +488,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select6[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select6[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -502,23 +502,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(11s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(11è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select7[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select7[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini11s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini11è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -530,8 +530,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select7[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select7[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -545,23 +545,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(12s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(12è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select8[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select8[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini12s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini12è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -573,8 +573,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select8[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select8[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -589,23 +589,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(13s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(13è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select9[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select9[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini13s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini13è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -617,8 +617,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select9[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select9[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -632,23 +632,23 @@ int set_customselect(HWND hwnd, FILTER* fp) {
     di_cnt = 0;
     select_cnt = 0;
     if (fgets(buf, sizeof(buf), m_fp) == NULL) {
-        MessageBoxA(fp->hwnd, "(14s–Ú)m_supercut_config.iniƒtƒ@ƒCƒ‹‚Ì\•¶‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", fp->name, MB_OK);
+        MessageBoxA(fp->hwnd, "(14è¡Œç›®)m_supercut_config.iniãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹æ–‡ãŒé–“é•ã£ã¦ã„ã¾ã™", fp->name, MB_OK);
         return -3;
     }
-    //•¶š—ñ‚ÌI’[‚Ü‚Åƒ‹[ƒv
+    //æ–‡å­—åˆ—ã®çµ‚ç«¯ã¾ã§ãƒ«ãƒ¼ãƒ—
     while (buf[cnt] != '\0') {
         if (buf[cnt] == ',') {
             tmp[j] = '\0';
-            select10[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-            memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+            select10[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+            memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
             select_cnt++;
             j = 0;
             di_cnt = 0;
             cnt++;
         }
-        //4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚­‚é‚±‚Æ‚Í‚ ‚è‚¦‚È‚¢‚Ì‚ÅƒGƒ‰[‚ğ“f‚­
+        //4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã‚‹ã“ã¨ã¯ã‚ã‚Šãˆãªã„ã®ã§ã‚¨ãƒ©ãƒ¼ã‚’åã
         else if (di_cnt >= 4) {
-            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini14s–Ú%d•¶š)ƒGƒ‰[:4Œ…ˆÈã‚Ì”š‚ªo‚Ä‚«‚Ä‚¢‚Ü‚·", cnt + 1);
+            sprintf_s(buf, sizeof(buf), "(m_supercut_config.ini14è¡Œç›®%dæ–‡å­—)ã‚¨ãƒ©ãƒ¼:4æ¡ä»¥ä¸Šã®æ•°å­—ãŒå‡ºã¦ãã¦ã„ã¾ã™", cnt + 1);
             MessageBoxA(fp->hwnd, buf, fp->name, MB_OK);
             return -3;
         }
@@ -660,8 +660,8 @@ int set_customselect(HWND hwnd, FILTER* fp) {
         }
     }
     tmp[j] = '\0';
-    select10[select_cnt] = atoi(tmp) - 1;    //“Ç‚İæ‚Á‚½’l‚ğ®”‚É‚µ‚Ä”z—ñ‚É‘ã“ü(ƒŒƒCƒ„[”Ô†‚ÆƒvƒƒOƒ‰ƒ€ã‚Åˆµ‚¤’l‚Í1‚¸‚ê‚Ä‚é‚Ì‚Å-1‚·‚é)
-    memset(tmp, '\0', sizeof(tmp));     //tmp”z—ñ‚Ì‰Šú‰»
+    select10[select_cnt] = atoi(tmp) - 1;    //èª­ã¿å–ã£ãŸå€¤ã‚’æ•´æ•°ã«ã—ã¦é…åˆ—ã«ä»£å…¥(ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸Šã§æ‰±ã†å€¤ã¯1ãšã‚Œã¦ã‚‹ã®ã§-1ã™ã‚‹)
+    memset(tmp, '\0', sizeof(tmp));     //tmpé…åˆ—ã®åˆæœŸåŒ–
     select_cnt++;
     j = 0;
     di_cnt = 0;
@@ -679,19 +679,19 @@ int set_customselect(HWND hwnd, FILTER* fp) {
 BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam, void* editp, FILTER* fp) {
     switch (message) {
 
-    //(‘½•ª)Å‰‚ÉÀs‚³‚ê‚é•”•ª
+    //(å¤šåˆ†)æœ€åˆã«å®Ÿè¡Œã•ã‚Œã‚‹éƒ¨åˆ†
     case WM_FILTER_INIT:
-        //ƒf[ƒ^‚Ì“Ç‚İæ‚è
+        //ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿å–ã‚Š
         set_customselect(hwnd, fp);
 
-        //Šg’£•ÒW0.92‚ª‚ ‚é‚©‚Ì”»•Ê
+        //æ‹¡å¼µç·¨é›†0.92ãŒã‚ã‚‹ã‹ã®åˆ¤åˆ¥
         exeditfp = get_exeditfp(fp);
         if (exeditfp == NULL) {
-            MessageBoxA(fp->hwnd, "Šg’£•ÒW0.92‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½", fp->name, MB_OK);
+            MessageBoxA(fp->hwnd, "æ‹¡å¼µç·¨é›†0.92ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ", fp->name, MB_OK);
             break;
         }
 
-        //ƒVƒ‡[ƒgƒJƒbƒgƒL[‚Ì’Ç‰Á
+        //ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚­ãƒ¼ã®è¿½åŠ 
         fp->exfunc->add_menu_item(fp, (LPSTR)all_split, fp->hwnd, M_ITEM_ALL_SPLIT, NULL, NULL);
         fp->exfunc->add_menu_item(fp, (LPSTR)custom1_split, fp->hwnd, M_ITEM_CUSTOM1_SPLIT, NULL, NULL);
         fp->exfunc->add_menu_item(fp, (LPSTR)custom2_split, fp->hwnd, M_ITEM_CUSTOM2_SPLIT, NULL, NULL);
@@ -755,42 +755,42 @@ BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam, void* e
         switch (wparam) {
         struct _stat s;
         case MID_FILTER_BUTTON:
-            //à–¾ƒtƒ@ƒCƒ‹‚ª–³‚¯‚ê‚ÎV‹Kì¬
+            //èª¬æ˜ãƒ•ã‚¡ã‚¤ãƒ«ãŒç„¡ã‘ã‚Œã°æ–°è¦ä½œæˆ
             if (_stat("m_supercut_config_inst.txt", &s) != 0) {
                 FILE* m_fp;
 
-                //ƒtƒ@ƒCƒ‹ì¬
+                //ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
                 fopen_s(&m_fp, "m_supercut_config_inst.txt", "w");
                 if (m_fp == NULL) break;
 
-                //ƒtƒ@ƒCƒ‹‚Éà–¾‚ğ‘‚«‚Ş
-                fprintf(m_fp, "’ˆÓ:configƒtƒ@ƒCƒ‹‚É–³‘Ê‚È•¶š‚â‰üs‚ğ“ü‚ê‚È‚¢‚Å‚­‚¾‚³‚¢B“ü‚ê‚é‚Æƒvƒ‰ƒOƒCƒ“‚ª³í‚É“®ì‚µ‚Ü‚¹‚ñB\n\n");
-                fprintf(m_fp, "- ƒX[ƒp[ƒJƒbƒg,•ªŠ„ƒJƒXƒ^ƒ€1`10‚Ìİ’è•û–@ -\n");
-                fprintf(m_fp, "configƒtƒ@ƒCƒ‹‚Ì\" = \"‚ÌŒã‚ÉA•ªŠ„‚µ‚½‚¢ƒŒƒCƒ„[”Ô†‚ğ‘S‚Ä ƒRƒ“ƒ}‹æØ‚è ‚Å‘‚«‚Ü‚·\n");
-                fprintf(m_fp, "ƒŒƒCƒ„[”Ô†‚Í¸‡(¬‚³‚¢”‚©‚ç‘å‚«‚¢”)‚É‚È‚é‚æ‚¤‚É‘‚¢‚Ä‚­‚¾‚³‚¢\n\n\n");
-                fprintf(m_fp, "—á‚¦‚ÎAcustom1‚ğˆÈ‰º‚Ì‚æ‚¤‚É‘‚«Aaviutlƒƒjƒ…[ƒo[‚Ì•ÒW¨ƒX[ƒp[ƒJƒbƒg¨•ªŠ„ƒJƒXƒ^ƒ€1‚ğƒNƒŠƒbƒN‚·‚é‚Æ(‚à‚µ‚­‚Í‘Î‰‚·‚éƒVƒ‡[ƒgƒJƒbƒgƒL[‚ğ‰Ÿ‚·‚Æ)\n");
+                //ãƒ•ã‚¡ã‚¤ãƒ«ã«èª¬æ˜ã‚’æ›¸ãè¾¼ã‚€
+                fprintf(m_fp, "æ³¨æ„:configãƒ•ã‚¡ã‚¤ãƒ«ã«ç„¡é§„ãªæ–‡å­—ã‚„æ”¹è¡Œã‚’å…¥ã‚Œãªã„ã§ãã ã•ã„ã€‚å…¥ã‚Œã‚‹ã¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒæ­£å¸¸ã«å‹•ä½œã—ã¾ã›ã‚“ã€‚\n\n");
+                fprintf(m_fp, "- ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚«ãƒƒãƒˆ,åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 1ï½10ã®è¨­å®šæ–¹æ³• -\n");
+                fprintf(m_fp, "configãƒ•ã‚¡ã‚¤ãƒ«ã®\" = \"ã®å¾Œã«ã€åˆ†å‰²ã—ãŸã„ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã‚’å…¨ã¦ ã‚³ãƒ³ãƒåŒºåˆ‡ã‚Š ã§æ›¸ãã¾ã™\n");
+                fprintf(m_fp, "ãƒ¬ã‚¤ãƒ¤ãƒ¼ç•ªå·ã¯æ˜‡é †(å°ã•ã„æ•°ã‹ã‚‰å¤§ãã„æ•°)ã«ãªã‚‹ã‚ˆã†ã«æ›¸ã„ã¦ãã ã•ã„\n\n\n");
+                fprintf(m_fp, "ä¾‹ãˆã°ã€custom1ã‚’ä»¥ä¸‹ã®ã‚ˆã†ã«æ›¸ãã€aviutlãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã®ç·¨é›†â†’ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚«ãƒƒãƒˆâ†’åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 1ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨(ã‚‚ã—ãã¯å¯¾å¿œã™ã‚‹ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚­ãƒ¼ã‚’æŠ¼ã™ã¨)\n");
                 fprintf(m_fp, "custom1=1,2,3\n");
-                fprintf(m_fp, "ƒŒƒCƒ„[1,2,3‚É‚ ‚éƒIƒuƒWƒFƒNƒg‚ªÄ¶ˆÊ’u‚Å•ªŠ„‚³‚ê‚Ü‚·\n\n");
-                fprintf(m_fp, "İ’è‚Å‚«‚é‚Ì‚Ícustom1`custom10‚Ü‚Å‚Å‚·Acustom11= ‚Æ‘‚¢‚Ä‚à•ªŠ„ƒJƒXƒ^ƒ€11‚ªg‚¦‚é‚Æ‚¢‚Á‚½‚±‚Æ‚Í‚ ‚è‚Ü‚¹‚ñB(¡Œã‘Î‰‚·‚é‰Â”\«‚Í‚ ‚è‚Ü‚·‚ª...)\n");
+                fprintf(m_fp, "ãƒ¬ã‚¤ãƒ¤ãƒ¼1,2,3ã«ã‚ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå†ç”Ÿä½ç½®ã§åˆ†å‰²ã•ã‚Œã¾ã™\n\n");
+                fprintf(m_fp, "è¨­å®šã§ãã‚‹ã®ã¯custom1ï½custom10ã¾ã§ã§ã™ã€custom11= ã¨æ›¸ã„ã¦ã‚‚åˆ†å‰²ã‚«ã‚¹ã‚¿ãƒ 11ãŒä½¿ãˆã‚‹ã¨ã„ã£ãŸã“ã¨ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚(ä»Šå¾Œå¯¾å¿œã™ã‚‹å¯èƒ½æ€§ã¯ã‚ã‚Šã¾ã™ãŒ...)\n");
 
                 fclose(m_fp);
             }
-            //ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+            //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
             system("m_supercut_config_inst.txt");
             
             break;
         case MID_FILTER_BUTTON+1:
-            //İ’èƒtƒ@ƒCƒ‹‚ª‚È‚¯‚ê‚ÎV‹Kì¬
+            //è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒãªã‘ã‚Œã°æ–°è¦ä½œæˆ
             if (_stat("m_supercut_config.ini", &s) != 0) {
                 FILE* m_fp;
 
-                //ƒtƒ@ƒCƒ‹ì¬
+                //ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
                 fopen_s(&m_fp, "m_supercut_config.ini", "w");
                 if (m_fp == NULL) break;
 
-                //ƒtƒ@ƒCƒ‹‚É‰Šúƒf[ƒ^‚ğ‘‚«‚Ş
+                //ãƒ•ã‚¡ã‚¤ãƒ«ã«åˆæœŸãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
                 fprintf(m_fp, "---------------------------------------------------------------------------------------------------\n");
-                fprintf(m_fp, "’ˆÓ:‚±‚Ìƒtƒ@ƒCƒ‹‚É–³‘Ê‚È•¶š‚â‰üs‚ğ“ü‚ê‚È‚¢‚Å‚­‚¾‚³‚¢B“ü‚ê‚é‚Æƒvƒ‰ƒOƒCƒ“‚ª³í‚É“®ì‚µ‚Ü‚¹‚ñB\n");
+                fprintf(m_fp, "æ³¨æ„:ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ç„¡é§„ãªæ–‡å­—ã‚„æ”¹è¡Œã‚’å…¥ã‚Œãªã„ã§ãã ã•ã„ã€‚å…¥ã‚Œã‚‹ã¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒæ­£å¸¸ã«å‹•ä½œã—ã¾ã›ã‚“ã€‚\n");
                 fprintf(m_fp, "---------------------------------------------------------------------------------------------------\n\n");
                 fprintf(m_fp, "custom1=1,2,3,4\n");
                 fprintf(m_fp, "custom2=1,3,5,7\n");
@@ -806,10 +806,10 @@ BOOL func_WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam, void* e
                 fclose(m_fp);
             }
 
-            //İ’èƒtƒ@ƒCƒ‹‚ğŠJ‚­
+            //è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
             system("m_supercut_config.ini");
 
-            //İ’èƒtƒ@ƒCƒ‹‚Ìî•ñ‚ğ”½‰f
+            //è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®æƒ…å ±ã‚’åæ˜ 
             set_customselect(hwnd, fp);
 
 
