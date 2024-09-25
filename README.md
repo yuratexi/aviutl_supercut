@@ -81,6 +81,8 @@
 >
 >設定できるのはcustom1～custom10までです、custom11= と書いても分割カスタム11が使えるといったことはありません。(今後対応する可能性はありますが...)
 
+# 既知の不具合
+・分割ALL,分割カスタムが時々作動しないことがある(原因不明)
 
 # クレジット
 * aviutl [https://spring-fragrance.mints.ne.jp/aviutl/](https://spring-fragrance.mints.ne.jp/aviutl/)
