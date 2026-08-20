@@ -1,5 +1,5 @@
 # AviUtl プラグイン - スーパーカットプラグイン  
-[AviUtl2向けに作り直したものはこちら](https://github.com/yuratexi/m_split_timeline_aviutl2/tree/master)  
+[AviUtl2向けに作り直したものはこちら](https://github.com/yuratexi/m_split_timeline_aviutl2/tree/main)  
 以下はAviUtlに導入するプラグインの話です(AviUtl2ではなく)
   
 スーパーカットプラグイン(m_split_timeline.auf)は、拡張編集ウィンドウに配置されてる複数のオブジェクトを、再生位置で分割するAviUtlのプラグインです。(言葉で説明するのﾑｽﾞｶｼｲ)
